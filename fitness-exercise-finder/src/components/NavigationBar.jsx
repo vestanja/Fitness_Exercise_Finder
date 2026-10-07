@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-function Navbar() {
+function NavigationBar() {
     return (
         <nav>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/exercises">Exercises</Link></li>
-            </ul>
+            <Link to="/">Home</Link>
         </nav>
     );
 }
 
-export default Navbar;
+export default NavigationBar;
