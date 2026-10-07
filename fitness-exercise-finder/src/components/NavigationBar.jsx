@@ -4,6 +4,8 @@ function NavigationBar() {
     return (
         <nav>
             <Link to="/">Home</Link>
+            {" | "}
+            <Link to="/workout">My Workout</Link>
         </nav>
     );
 }
