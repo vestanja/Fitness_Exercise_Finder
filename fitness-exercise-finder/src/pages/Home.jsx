@@ -10,6 +10,10 @@ function Home() {
         setExercises(data);
     };
 
+    const addToWorkout = (exercise) => {
+        console.log("Added to workout:", exercise.name);
+    };
+
     return (
         <div>
             <h1>Welcome to the workout planner!</h1>
@@ -33,7 +37,11 @@ function Home() {
                 </button>
             <ul>
                 {exercises.map((exercise) => (
-                    <li key={exercise.name}>{exercise.name}</li>
+                    <li key={exercise.name}>{exercise.name}
+                    <button onClick={() => addToWorkout(exercise)}>
+                        Add to workout
+                    </button>
+                    </li>
                 ))}
             </ul>
         </div>
