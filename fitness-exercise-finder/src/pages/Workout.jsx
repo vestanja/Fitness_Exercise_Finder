@@ -25,16 +25,17 @@ function Workout() {
 
     return (
         <div>
-            <h1>My Workout</h1>
+            <h1 className="text-primary mb-4">
+                My Workout</h1>
 
             {workout.length === 0 ? (
                 <p>No exercises added yet.</p>
             ) : (
                 <ul>
                     {workout.map((exercise, index) => (
-                        <li key={index}>
+                        <li key={index} className="mb-3">
                             {exercise.name}
-                            <button onClick={() => removeExercise(index)}>
+                            <button className="btn btn-danger ms-2" onClick={() => removeExercise(index)}>
                                 Remove
                             </button>
                         </li>

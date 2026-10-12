@@ -23,7 +23,8 @@ function Home() {
 
     return (
         <div>
-            <h1>Welcome to the workout planner!</h1>
+            <h1 className="text-primary mb-4">
+                Welcome to the workout planner!</h1>
 
             <select value={muscle} onChange={(e) => setMuscle(e.target.value)}>
                 <option value="">Select a muscle group</option>
@@ -39,13 +40,14 @@ function Home() {
                 <option value="calves">Calves</option>
                 
             </select>
-            <button onClick={() => loadExercises(muscle)}>
+            <button onClick={() => loadExercises(muscle)} className="mb-3">
                 Search Exercises
                 </button>
-            <ul>
+            <ul> 
                 {exercises.map((exercise) => (
-                    <li key={exercise.name}>{exercise.name}
-                    <button onClick={() => addToWorkout(exercise)}>
+                    <li key={exercise.name} className="mb-3">
+                        {exercise.name}
+                    <button className = "btn btn-success" onClick={() => addToWorkout(exercise)}>
                         Add to workout
                     </button>
                     </li>

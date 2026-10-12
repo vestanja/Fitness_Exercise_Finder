@@ -1,7 +1,8 @@
 function ExerciseDetails() {
     return (
         <div>
-            <h1>About Workout Planner</h1>
+            <h1 className="text-primary mb-4"
+            >About Workout Planner</h1>
 
             <p>
                 This workout planner helps you find exercises to use
