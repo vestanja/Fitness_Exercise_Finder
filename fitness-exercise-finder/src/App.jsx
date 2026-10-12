@@ -8,7 +8,7 @@ import ExerciseDetails from "./pages/ExerciseDetails";
 
 function App() {
     return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Fitness_exercise_Finder">
         <NavigationBar />
 
         <Routes>
@@ -16,7 +16,7 @@ function App() {
           <Route path="/workout" element={<Workout />} />
           <Route path="/about" element={<ExerciseDetails />} />
         </Routes>
-    </BrowserRouter > 
+    </BrowserRouter> 
     );
 }
 

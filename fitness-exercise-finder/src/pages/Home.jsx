@@ -61,6 +61,11 @@ function Home() {
             <button onClick={() => loadExercises(muscle)} className="mb-3">
                 Search Exercises
                 </button>
+                    {error && (
+                    <p className="text-danger mt-2" role="alert">
+                        {error}
+                    </p>
+                    )}
             <ul> 
                 {exercises.map((exercise) => (
                     <li key={exercise.name} className="mb-3">
