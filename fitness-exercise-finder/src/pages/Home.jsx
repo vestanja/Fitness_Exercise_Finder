@@ -1,9 +1,12 @@
 import {useState} from "react";
 import {getExercises} from "../services/api";
+import {useNavigate} from "react-router-dom";
+
 
 function Home() {
     const [muscle, setMuscle] = useState("");
     const [exercises, setExercises] = useState([]);
+    const navigate = useNavigate();
 
     const loadExercises = async (muscle) => {
         const data = await getExercises(muscle);

@@ -6,6 +6,8 @@ function NavigationBar() {
             <Link to="/">Home</Link>
             {" | "}
             <Link to="/workout">My Workout</Link>
+            {" | "}
+            <Link to="/about">About</Link>
         </nav>
     );
 }
