@@ -11,6 +11,10 @@ function Home() {
     };
 
     const addToWorkout = (exercise) => {
+        const savedExercises = JSON.parse(localStorage.getItem("workout")) || [];
+        savedExercises.push(exercise);
+
+        localStorage.setItem("workout", JSON.stringify(savedExercises));
         console.log("Added to workout:", exercise.name);
     };
 
