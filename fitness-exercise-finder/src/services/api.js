@@ -12,7 +12,7 @@ export async function getExercises(muscle) {
         );
 
         if (!response.ok) {
-            throw new Error("Harjoitusten hakeminen epäonnistui.");
+            throw new Error("Exercises not founded.");
         }
 
         const data = await response.json();

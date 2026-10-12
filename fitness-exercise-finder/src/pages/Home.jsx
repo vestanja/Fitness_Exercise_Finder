@@ -8,9 +8,27 @@ function Home() {
     const [exercises, setExercises] = useState([]);
     const navigate = useNavigate();
 
+    const [error, setError]=useState("");
+
     const loadExercises = async (muscle) => {
-        const data = await getExercises(muscle);
-        setExercises(data);
+        setError("");
+        setExercises([]);
+
+        if (!muscle) {
+            setError("Please select a muscle group first.");
+            return;
+        }
+
+        try {
+            const data = await getExercises(muscle);
+            setExercises(data);
+
+            if (data.length === 0) {
+                setError("No exercises found for this muscle group.");
+            }
+        } catch (error) {
+            setError("Failed to load exercises. Please try again.");
+        }
     };
 
     const addToWorkout = (exercise) => {
