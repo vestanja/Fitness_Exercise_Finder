@@ -46,7 +46,9 @@ function Home() {
             <ul> 
                 {exercises.map((exercise) => (
                     <li key={exercise.name} className="mb-3">
+                        <span style={{width: "200px", display: "inline-block"}}>
                         {exercise.name}
+                        </span>
                     <button className = "btn btn-success" onClick={() => addToWorkout(exercise)}>
                         Add to workout
                     </button>

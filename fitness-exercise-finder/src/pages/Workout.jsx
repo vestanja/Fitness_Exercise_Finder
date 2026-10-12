@@ -34,7 +34,10 @@ function Workout() {
                 <ul>
                     {workout.map((exercise, index) => (
                         <li key={index} className="mb-3">
-                            {exercise.name}
+                            <span style={{width: "200px", display: "inline-block"}}>
+                                {exercise.name}
+                            </span>
+                            
                             <button className="btn btn-danger ms-2" onClick={() => removeExercise(index)}>
                                 Remove
                             </button>
