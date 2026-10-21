@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from "react";
 
-function Workout() {
+function Workout({language}) {
     const [workout, setWorkout] = useState([]);
+    
 
     useEffect(() => {
         const savedWorkout = JSON.parse(
@@ -26,11 +27,18 @@ function Workout() {
     return (
         <div>
             <h1 className="text-primary mb-4">
-                My Workout</h1>
+                {language==="en" ? "My Workout"
+                : "Oma treeni"
+                }
+            </h1>
 
             {workout.length === 0 ? (
-                <p>No exercises added yet.</p>
-            ) : (
+                <p>{language==="en" 
+                ? "No exercises added yet."
+                : "Ei vielä lisättyjä liikkeitä"
+                 }
+                </p>
+            ):(
                 <ul>
                     {workout.map((exercise, index) => (
                         <li key={index} className="mb-3">
@@ -39,7 +47,9 @@ function Workout() {
                             </span>
                             
                             <button className="btn btn-danger ms-2" onClick={() => removeExercise(index)}>
-                                Remove
+                                {language==="en" ? "Remove"
+                                : "Poista"}
+                            
                             </button>
                         </li>
                     ))}

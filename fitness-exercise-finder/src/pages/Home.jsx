@@ -3,10 +3,12 @@ import {getExercises} from "../services/api";
 import {useNavigate} from "react-router-dom";
 
 
-function Home() {
+
+function Home({language}) {
     const [muscle, setMuscle] = useState("");
     const [exercises, setExercises] = useState([]);
     const navigate = useNavigate();
+
 
     const [error, setError]=useState("");
 
@@ -15,7 +17,8 @@ function Home() {
         setExercises([]);
 
         if (!muscle) {
-            setError("Please select a muscle group first.");
+            language=== "en" ? setError("Please select a muscle group first.") 
+            : setError("Valitse ensin lihasryhmä.");
             return;
         }
 
@@ -24,10 +27,12 @@ function Home() {
             setExercises(data);
 
             if (data.length === 0) {
-                setError("No exercises found for this muscle group.");
+                language=== "en" ? setError("No exercises found for this muscle group.")
+                : setError("Tälle lihasryhmälle ei löytynyt liikkeitä.");
             }
         } catch (error) {
-            setError("Failed to load exercises. Please try again.");
+            language=== "en" ? setError("Failed to load exercises. Please try again.")
+            : setError("Liikkeiden lataaminen epäonnistui. Yritä uudelleen.");
         }
     };
 
@@ -41,8 +46,11 @@ function Home() {
 
     return (
         <div>
+        
             <h1 className="text-primary mb-4">
-                Welcome to the workout planner!</h1>
+                {language === "en" ? "Welcome to the workout planner!" 
+                : "Tervetuloa Treenin Suunnittelijaan!"}
+            </h1>
 
             <select value={muscle} onChange={(e) => setMuscle(e.target.value)}>
                 <option value="">Select a muscle group</option>
@@ -59,7 +67,9 @@ function Home() {
                 
             </select>
             <button onClick={() => loadExercises(muscle)} className="mb-3">
-                Search Exercises
+                {language==="en" ? "Search Exercises"
+                : "Etsi liikkeitä"
+                }
                 </button>
                     {error && (
                     <p className="text-danger mt-2" role="alert">
@@ -73,7 +83,9 @@ function Home() {
                         {exercise.name}
                         </span>
                     <button className = "btn btn-success" onClick={() => addToWorkout(exercise)}>
-                        Add to workout
+                        {language=== "en" ? "Add to workout"
+                        : "Lisää treeniin"
+                        }
                     </button>
                     </li>
                 ))}

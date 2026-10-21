@@ -26,17 +26,20 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: fitness-exercise-finder/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: fitness-exercise-finder
 
       - name: Build
         run: npm run build
+        working-directory: fitness-exercise-finder
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: fitness-exercise-finder/dist
 
   deploy:
     environment:
